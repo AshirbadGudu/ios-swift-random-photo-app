@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     private let imageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -24,6 +23,7 @@ class ViewController: UIViewController {
        return button
     }()
     
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +33,18 @@ class ViewController: UIViewController {
         imageView.center = view.center
         view.addSubview(button)
         getRandomPhoto()
+        button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
     }
-
+       
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         button.frame = CGRect(x: 30, y: view.frame.height - 100 - view.safeAreaInsets.bottom, width: view.frame.width - 60, height: 60)
     }
-    
+ 
+    @objc func onTap()  {
+        view.backgroundColor = .systemTeal
+        getRandomPhoto()
+    }
     
     func getRandomPhoto()  {
         let urlString = "https://source.unsplash.com/random/600x600"
