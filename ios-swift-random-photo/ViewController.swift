@@ -32,13 +32,15 @@ class ViewController: UIViewController {
         imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width - 40, height: 300)
         imageView.center = view.center
         view.addSubview(button)
-        button.frame = CGRect(x: 20,
-                              y: 0,
-                              width: view.frame.width - 40,
-                              height: 50)
         getRandomPhoto()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        button.frame = CGRect(x: 30, y: view.frame.height - 100 - view.safeAreaInsets.bottom, width: view.frame.width - 60, height: 60)
+    }
+    
+    
     func getRandomPhoto()  {
         let urlString = "https://source.unsplash.com/random/600x600"
         let url = URL(string:urlString)!
