@@ -23,6 +23,16 @@ class ViewController: UIViewController {
        return button
     }()
     
+    let bgColors:[UIColor] = [
+        .systemTeal,
+        .systemRed,
+        .systemBlue,
+        .systemGreen,
+        .systemOrange,
+        .systemPurple,
+        .systemYellow,
+        .systemIndigo
+    ]
    
     
     override func viewDidLoad() {
@@ -42,7 +52,7 @@ class ViewController: UIViewController {
     }
  
     @objc func onTap()  {
-        view.backgroundColor = .systemTeal
+        view.backgroundColor = bgColors.randomElement()
         getRandomPhoto()
     }
     
